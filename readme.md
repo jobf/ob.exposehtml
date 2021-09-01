@@ -48,6 +48,8 @@ expose.Button("Click", onClick);
 
 Check the samples directory in the repo for a haxe flixel project with some elements exposed.
 
+You can view a built version of the sample here - https://jobf.github.io/ob.exposehtml/
+
 ### Caveats
 
 Clearly this only works when haxe target is html5, so if you need multiple targets make sure to use conditionals in your code otherwise builds will fail for non web targets. Example below.
