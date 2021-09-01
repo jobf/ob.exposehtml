@@ -1,0 +1,14 @@
+{
+	"name": "ob.exposehtml",
+	"url" : "https://github.com/jobf/ob.exposehtml/",
+	"license": "MIT",
+	"tags": ["html", "reflection", "utility"],
+	"description": "Quicky expose haxe application via HTML.",
+	"version": "0.0.1",
+	"releasenote": "not released",
+	"contributors": ["jobf"],
+	"classPath": "source",
+	"dependencies": {
+	}
+
+}
