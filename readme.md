@@ -4,6 +4,8 @@
 
 A haxelib to help quickly expose parts of your application via the web page it is on.
 
+See the sample project here - https://jobf.github.io/ob.exposehtml/
+
 ## Why?
 
 I wanted to be change some in game values on a game that had a resolution of 64 x 64 pixels where there is barely enough space for words let alone UI controls.
@@ -43,12 +45,6 @@ expose.Button("Click", () -> trace("clicked!"));
 // or reference a named function, in this case 'onClick'
 expose.Button("Click", onClick);
 ```
-
-### Example
-
-Check the samples directory in the repo for a haxe flixel project with some elements exposed.
-
-You can view a built version of the sample here - https://jobf.github.io/ob.exposehtml/
 
 ### Caveats
 
