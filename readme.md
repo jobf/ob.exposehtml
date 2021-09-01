@@ -8,7 +8,7 @@ See the sample project here - https://jobf.github.io/ob.exposehtml/
 
 ## Why?
 
-I wanted to be change some in game values on a game that had a resolution of 64 x 64 pixels where there is barely enough space for words let alone UI controls.
+I wanted to be ale change some in game values on a game that had a resolution of 64 x 64 pixels where there is barely enough space for words let alone UI controls.
 
 ## How?
 
@@ -45,6 +45,7 @@ expose.Button("Click", () -> trace("clicked!"));
 // or reference a named function, in this case 'onClick'
 expose.Button("Click", onClick);
 ```
+
 
 ### Caveats
 
