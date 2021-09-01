@@ -1,0 +1,2 @@
+-cp source
+--js bin/main.js
