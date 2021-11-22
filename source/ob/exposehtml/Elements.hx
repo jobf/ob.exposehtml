@@ -73,6 +73,29 @@ class InputBoundElement<T> extends ValueBoundElement<T> {
 	}
 }
 
+class IntElement extends InputBoundElement<Int> {
+	var incrementStep:Float;
+
+	public function new(object:Dynamic, objectField:String, incrementStep:Int, document:HTMLDocument, ?outer:Element, ?label:String, func:Int->Void) {
+		super(object, objectField, document, outer, label, func);
+		input.type = "number";
+		this.incrementStep = incrementStep;
+		input.step = Std.string(incrementStep);
+	}
+
+	override function inputOnChange() {
+		var nextValue = Std.parseInt(input.value);
+		if (Math.isNaN(nextValue)) {
+			return;
+		}
+		if (nextValue != value) {
+			value = nextValue;
+			updateValue();
+			super.inputOnChange();
+		}
+	}
+}
+
 class NumericInputElement extends InputBoundElement<Float> {
 	var incrementStep:Float;
 

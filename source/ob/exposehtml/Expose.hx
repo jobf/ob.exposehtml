@@ -43,6 +43,10 @@ class Expose {
 		new NumericInputElement(object, objectField, incrementStep, document, containerOrDefault(container), label, func);
 	}
 
+	public function NumericInt(object:Dynamic, objectField:String, incrementStep:Int, label:String = "", ?container:Element, func:Int->Void = null) {
+		new IntElement(object, objectField, incrementStep, document, containerOrDefault(container), label, func);
+	}
+
 	public function Checkbox(object:Dynamic, objectField:String, label:String = "", ?container:Element, func:Bool->Void = null) {
 		new CheckboxElement(object, objectField, document, containerOrDefault(container), label, func);
 	}
