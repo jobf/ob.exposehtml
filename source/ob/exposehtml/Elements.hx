@@ -42,7 +42,12 @@ class InputBoundElement<T> extends ValueBoundElement<T> {
 	var func:T->Void;
 
 	public function new(object:Dynamic, objectField:String, document:HTMLDocument, ?outer:Element, label:String = "", func:T->Void) {
-		var labelText = '[${Type.getClassName(Type.getClass(object))}.${objectField}] ${label}';
+		var labelText = label.length > 0 ? label : objectField;
+		var objectClass = Type.getClass(object);
+		if(objectClass!=null){
+			var className = Type.getClassName(objectClass);
+			labelText = '[${className}.${objectField}] ${label}';
+		}
 		super(object, objectField, document, outer, '${labelText}');
 		input = document.createInputElement();
 		this.func = func;
