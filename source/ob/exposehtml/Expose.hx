@@ -1,10 +1,11 @@
 package ob.exposehtml;
 
+import js.html.Blob;
 import js.html.Element;
 import js.html.HTMLDocument;
-import ob.exposehtml.Elements.ButtonElement;
-import ob.exposehtml.Elements.CheckboxElement;
-import ob.exposehtml.Elements.NumericInputElement;
+import js.html.URL;
+import js.lib.ArrayBuffer;
+import ob.exposehtml.Elements;
 
 class Expose {
 	public var container(default, null):Element;
@@ -53,5 +54,25 @@ class Expose {
 
 	public function Button(buttonText:String = "", label:String = "", ?container:Element, func:Void->Void) {
 		new ButtonElement(document, containerOrDefault(container), buttonText, label, func);
+	}
+
+	public function Image(?container:Element, imageBytes:haxe.io.Bytes, maxHeightPx:Int = 400):Element {
+		var arrayBuffer:ArrayBuffer = imageBytes.getData();
+		trace('arrayBuffer length is ${arrayBuffer.byteLength}');
+		var blob = new Blob([arrayBuffer]);
+		if (container == null) {
+			container = document.createDivElement();
+			container.style.overflowY = "scroll";
+			container.style.maxHeight = '${maxHeightPx}px';
+			document.body.append(container);
+		}
+		var objectUrl = URL.createObjectURL(blob);
+		var imageElement = document.createImageElement();
+		imageElement.src = objectUrl;
+		imageElement.onload = () -> {
+			URL.revokeObjectURL(objectUrl);
+		}
+		container.append(imageElement);
+		return container;
 	}
 }
